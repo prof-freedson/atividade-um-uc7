@@ -19,7 +19,7 @@ Você irá desenvolver uma aplicação completa para gerenciamento de livros, ut
 * A remoção do livro deve ser feita diretamente na página principal, sem página específica.
 * No topo da página principal, adicione um botão “Criar novo livro”, que leve a uma página/formulário para cadastro de um novo livro.
 * O frontend deve consumir a API criada no backend para todas as operações (listar, buscar, criar, editar, remover).
-* * **ATENÇÃO:** a modelagem das páginas deve seguir um layout simples e sem muitos efeitos adicionais em CSS ou JavaScript.
+* **ATENÇÃO:** a modelagem das páginas deve seguir um layout simples e sem muitos efeitos adicionais em CSS ou JavaScript.
 
 # Entrega: prazo até 07/07/2025
 
@@ -32,7 +32,7 @@ Você irá desenvolver uma aplicação completa para gerenciamento de livros, ut
 # Ferrmantas de suporte
 * Poderão ser usadas ferrmantas de assistentes de inteligência artificial como suporte ou auxílio para a realização da atividade.
 * Assistentes de inteligência artificial recomendados: OpenAI ChatGPT, Google Gemini, Antropic Claude, Microsoft Copilot ou Github Copilot.
-* **ATENÇÃO** : fiquem atentos como as solicitações de suporte ou ajuda a essas ferramentas devem ser feitas para que o foco da realização d atividade não seja desviado. Várias solicitações sobre um mesmo assunto podem ser gerados de forma diferente.
+* **ATENÇÃO** : fiquem atentos como as solicitações de suporte ou ajuda a essas ferramentas devem ser feitas para que o foco da realização da atividade não seja desviado. Várias solicitações sobre um mesmo assunto podem ser gerados de forma diferente.
 
 # Equipes
 ## Frontend
@@ -42,7 +42,6 @@ Você irá desenvolver uma aplicação completa para gerenciamento de livros, ut
 * Ranna
 * Yorhannes
 
-# Equipes
 ## Backend
 * Deyse
 * Edmilson
