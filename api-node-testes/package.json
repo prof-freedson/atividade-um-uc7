@@ -1,0 +1,15 @@
+{
+  "name": "api-node-testes",
+  "version": "1.0.0",
+  "description": "Você irá desenvolver uma aplicação completa para gerenciamento de livros, utilizando um backend Node.js baseado no projeto “api-node-teste” (adaptado para o domínio de livros) e um frontend em Next.js. O backend será responsável por armazenar, listar, buscar, editar e remover livros, cada um com os campos: id, nome, editora, num_paginas, genero e url da capa do livro. O frontend Next.js terá páginas para exibir todos os livros, visualizar detalhes, editar e criar novos livros, além de permitir a remoção diretamente da listagem.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
