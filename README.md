@@ -25,6 +25,7 @@ Você irá desenvolver uma aplicação completa para gerenciamento de livros, ut
 
 * **ATENÇÃO:** todos devem participar da atividade implementando uma das partes da atividade (Backend ou Frontend)
 * A atividade deve ser entregue utilizando este repositório.
+* Cada equipe vai entregar sua parte em uma pasta, ou seja, uma pasta para o backend e outra para o frontend.
 * Faça o fork do repositório para a sua conta.
 * Faça as alteração e envie para o seu repositório.
 * Solicite as mudanças para o repositório principal com um pull request.
