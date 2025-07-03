@@ -53,6 +53,7 @@ function atualizarLivro(id, nome, editora, num_paginas, genero, url_capa) {
   if (index === -1) return null;
   if (nome) livros[index].nome = nome;
   if (editora) livros[index].editora = editora;
+  if (num_paginas) livros[index].num_paginas = num_paginas;
   salvarUsuariosEmArquivo();
   return usuarios[index];
 }
