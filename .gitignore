@@ -1,0 +1,4 @@
+# Ignorar o package.json
+package-lock.json
+
+**/node_modules/
