@@ -35,6 +35,17 @@ Você irá desenvolver uma aplicação completa para gerenciamento de livros, ut
 * Assistentes de inteligência artificial recomendados: OpenAI ChatGPT, Google Gemini, Antropic Claude, Microsoft Copilot ou Github Copilot.
 * **ATENÇÃO** : fiquem atentos como as solicitações de suporte ou ajuda a essas ferramentas devem ser feitas para que o foco da realização da atividade não seja desviado. Várias solicitações sobre um mesmo assunto podem ser gerados de forma diferente.
 
+# Instruções de uso das pastas de backend e frontend
+
+1. Para usar ambas as pastas, é recomendado executar o comando a seguir:
+
+``` powershell
+npm i
+```
+
+### Observação
+Abra a pasta que será usada no Terminal para executar o comando acima 
+
 # Equipes
 ## Frontend
 * Amanda
