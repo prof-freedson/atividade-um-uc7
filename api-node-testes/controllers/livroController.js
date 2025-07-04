@@ -45,6 +45,17 @@ exports.listarUsuarioPeloId = (req, res) => {
   return sendResponse(req, res, "usuario", usuario);
 };
 
+
+
+//   Samuel acima
+//
+//
+//  franklin Para baixo
+
+
+
+
+
 // Criando um usuário
 exports.criarUsuario = (req, res) => {
   let nome, email;
