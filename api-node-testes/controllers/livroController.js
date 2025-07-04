@@ -1,4 +1,4 @@
-const usuarioModel = require("../models/usuarioModel");
+const livroModel = require("../models/livroModel");
 const js2xmlparser = require("js2xmlparser");
 
 function aceitaXml(req) {
