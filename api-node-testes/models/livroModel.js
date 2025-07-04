@@ -28,7 +28,7 @@ function salvarLivrosEmArquivo() {
     const xml = js2xmlparser.parse("livros", { livro: livros });
     fs.writeFileSync(xmlPath, xml, "utf-8");
   } catch (err) {
-    console.error("Erro ao salvar arquivos de usuários:", err);
+    console.error("Erro ao salvar arquivos de livros:", err);
   }
 }
 
@@ -48,28 +48,31 @@ function criarLivro(nome, editora, num_paginas, genero, url_capa) {
   return novoLivro;
 }
 
-function atualizarLivro(id, nome, editora, num_paginas, genero, url_capa) {
+function atualizarLivro(id, nome, editora, num_paginas, genero, url_livro) {
   const index = livros.findIndex((u) => u.id === id);
   if (index === -1) return null;
   if (nome) livros[index].nome = nome;
   if (editora) livros[index].editora = editora;
   if (num_paginas) livros[index].num_paginas = num_paginas;
-  salvarUsuariosEmArquivo();
-  return usuarios[index];
+  if (genero) livros[index].genero = genero;
+  if (url_livro) livros[index].url_paginas = url_livro;
+  salvarLivrosEmArquivo();
+  return livros[index];
 }
 
-function removerUsuario(id) {
-  const index = usuarios.findIndex((u) => u.id === id);
+function removerLivro(id) {
+  const index = livros.findIndex((u) => u.id === id);
   if (index === -1) return false;
-  usuarios.splice(index, 1);
-  salvarUsuariosEmArquivo();
+  livros.splice(index, 1);
+  salvarLivrosEmArquivo();
   return true;
 }
 
 module.exports = {
-  listarUsuarios,
-  listarUsuarioPeloId,
-  criarUsuario,
-  atualizarUsuario,
-  removerUsuario,
+  listarLivros,
+  listarLivroPeloId,
+  criarLivro,
+  atualizarLivro,
+  removerLivro,
 };
+
