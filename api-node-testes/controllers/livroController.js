@@ -1,4 +1,4 @@
-const usuarioModel = require("../models/usuarioModel");
+const livroModel = require("../models/livroModel");
 const js2xmlparser = require("js2xmlparser");
 
 function aceitaXml(req) {
@@ -16,24 +16,24 @@ function sendResponse(req, res, root, data, status = 200) {
 }
 
 // Listando todos os usuários
-exports.listarUsuarios = (req, res) => {
-  const usuarios = usuarioModel.listarUsuarios();
-  if (usuarios.length === 0) {
+exports.listarLivros = (req, res) => {
+  const livros = livroModel.listarLivros();
+  if (livros.length === 0) {
     return sendResponse(req, res, "response", {
       mensagem: "Nenhum usuário encontrado",
     });
   }
   if (aceitaXml(req)) {
-    return sendResponse(req, res, "usuarios", { usuario: usuarios });
+    return sendResponse(req, res, "livros", { livro: livros });
   }
-  return sendResponse(req, res, "usuarios", usuarios);
+  return sendResponse(req, res, "livros", livros);
 };
 
 // Listando um só usuário
-exports.listarUsuarioPeloId = (req, res) => {
+exports.listarLivroPeloId = (req, res) => {
   const id = parseInt(req.params.id);
-  const usuario = usuarioModel.listarUsuarioPeloId(id);
-  if (!usuario) {
+  const livro = livroModel.listarLivroPeloId(id);
+  if (!livro) {
     return sendResponse(
       req,
       res,
@@ -42,8 +42,19 @@ exports.listarUsuarioPeloId = (req, res) => {
       404
     );
   }
-  return sendResponse(req, res, "usuario", usuario);
+  return sendResponse(req, res, "livro", livro);
 };
+
+
+
+//   Samuel acima
+//
+//
+//  franklin Para baixo
+
+
+
+
 
 // Criando um usuário
 exports.criarUsuario = (req, res) => {
