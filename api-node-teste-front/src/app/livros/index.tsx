@@ -12,14 +12,14 @@ export default function ListaLivros() {
   const [livros, setLivros] = useState<Livro[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/livros")
+    fetch("http://localhost:3000/livros")
       .then((res) => res.json())
       .then((data) => setLivros(data));
   }, []);
 
   const removerLivro = async (id: number) => {
     if (confirm("Deseja realmente remover este livro?")) {
-      await fetch(`http://localhost:3001/livros/${id}`, { method: "DELETE" });
+      await fetch(`http://localhost:3000/livros/${id}`, { method: "DELETE" });
       setLivros(livros.filter((livro) => livro.id !== id));
     }
   };

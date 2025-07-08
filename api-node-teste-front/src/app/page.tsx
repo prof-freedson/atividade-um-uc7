@@ -13,7 +13,7 @@ export default function HomePage() {
   const [livros, setLivros] = useState<Livro[]>([]);
 
   const fetchLivros = async () => {
-    const res = await fetch('http://localhost:3001/livros'); // Ajuste a URL da sua API
+    const res = await fetch('http://localhost:3000/livros'); // Ajuste a URL da sua API
     const data = await res.json();
     setLivros(data);
   };
@@ -23,13 +23,13 @@ export default function HomePage() {
   }, []);
 
   const removerLivro = async (id: number) => {
-    await fetch(`http://localhost:3001/livros/${id}`, { method: 'DELETE' });
+    await fetch(`http://localhost:3000/livros/${id}`, { method: 'DELETE' });
     fetchLivros();
   };
 
   return (
     <main style={{ padding: '2rem' }}>
-      <h1>Livros Cadastrados</h1>
+      <h2>Livros Cadastrados</h2>
       <Link href="/livros/novo">
         <button style={{ marginBottom: '1rem' }}>Criar novo livro</button>
       </Link>
