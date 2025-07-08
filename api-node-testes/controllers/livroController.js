@@ -20,7 +20,7 @@ exports.listarLivros = (req, res) => {
   const livros = livroModel.listarLivros();
   if (livros.length === 0) {
     return sendResponse(req, res, "response", {
-      mensagem: "Nenhum usuário encontrado",
+      mensagem: "Nenhum livro encontrado",
     });
   }
   if (aceitaXml(req)) {
@@ -29,7 +29,7 @@ exports.listarLivros = (req, res) => {
   return sendResponse(req, res, "livros", livros);
 };
 
-// Listando um só usuário
+// Listando um só livro
 exports.listarLivroPeloId = (req, res) => {
   const id = parseInt(req.params.id);
   const livro = livroModel.listarLivroPeloId(id);
@@ -38,7 +38,7 @@ exports.listarLivroPeloId = (req, res) => {
       req,
       res,
       "response",
-      { mensagem: "Usuário não encontrado" },
+      { mensagem: "livro não encontrado" },
       404
     );
   }
