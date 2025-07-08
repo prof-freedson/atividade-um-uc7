@@ -2,20 +2,20 @@ const express = require("express");
 const router = express.Router();
 const livroController = require("../controllers/livroController");
 
-// Listar todos os livros
-router.get("/livros", livroController.listarLivros);
+// Rota de teste
+router.get("/", (req, res) => {
+  res.send("Servidor funcionando");
+  console.log("Rota inicial acessada");
+});
 
-// Listar um livro pelo ID
-router.get("/livros:id", livroController.listarLivroPeloId);
+// Rotas CRUD para livros
+router.route("/livros")
+  .get(livroController.listarLivros)       // GET /livros
+  .post(livroController.criarLivro);       // POST /livros
 
-// Criar um novo livro
-router.post("/livros", livroController.criarLivro);
-
-// Atualizar um livro existente
-router.put("/livros:id", livroController.atualizarLivro);
-
-// Remover um livro
-router.delete("livros/:id", livroController.removerLivro);
-
+router.route("/livros/:id")
+  .get(livroController.listarLivroPeloId)  // GET /livros/:id
+  .put(livroController.atualizarLivro)     // PUT /livros/:id
+  .delete(livroController.removerLivro);   // DELETE /livros/:id
 
 module.exports = router;

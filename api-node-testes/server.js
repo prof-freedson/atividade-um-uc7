@@ -1,15 +1,20 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const livroRoutes = require("./routes/livroRoutes");//const livroRoutes = require("./routes/livroRoutes");
+const xmlparser = require("express-xml-bodyparser"); // Adicione esta linha se estiver usando XML
+const livroRoutes = require("./routes/livroRoutes"); // Declaração ÚNICA
 
 const app = express();
 const PORT = 3000;
 
+// Middlewares
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
+app.use(xmlparser()); // Só inclua se realmente for usar XML
 
-app.use("/livros", livroRoutes);
+// Rotas
+app.use("/", livroRoutes); // Prefixo opcional: "/api" ou "/livros"
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
