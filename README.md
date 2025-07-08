@@ -13,7 +13,7 @@ Você irá desenvolver uma aplicação completa para gerenciamento de livros, ut
 ## Frontend (Next.js)
 
 * Crie um projeto Next.js.
-* Implemente uma página principal que exiba todos os livros em formato de lista ou cartões. Cada livro deve ter o nome, o gênero e três botões: “Ver”, “Editar” e “Remover”.
+* Implemente uma página principal que exiba todos os livros em formato de lista ou cartões. Cada livro deve ter a capa, o nome, o gênero e três botões: “Ver”, “Editar” e “Remover”.
 * Implemente uma página de detalhes do livro, acessada pelo botão “Ver”.
 * Implemente uma página de edição do livro, acessada pelo botão “Editar”.
 * A remoção do livro deve ser feita diretamente na página principal, sem página específica.
@@ -21,7 +21,7 @@ Você irá desenvolver uma aplicação completa para gerenciamento de livros, ut
 * O frontend deve consumir a API criada no backend para todas as operações (listar, buscar, criar, editar, remover).
 * **ATENÇÃO:** a modelagem das páginas deve seguir um layout simples e sem muitos efeitos adicionais em CSS ou JavaScript.
 
-# Entrega: prazo até 07/07/2025
+# Entrega: prazo até 08/07/2025
 
 * **ATENÇÃO:** todos devem participar da atividade implementando uma das partes da atividade (Backend ou Frontend)
 * A atividade deve ser entregue utilizando este repositório.
@@ -52,12 +52,11 @@ Abra a pasta que será usada no Terminal para executar o comando acima
 * Beatriz
 * Marques
 * Ranna
-* Yorhannes
+* Ramos
 
 ## Backend
 * Deyse
 * Edmilson
 * Thiago
 * Franklin
-* Ramos
 * Samuel 
