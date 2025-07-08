@@ -30,13 +30,13 @@ export default function EditarLivro() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Editar Livro</h1>
+      <h1>📚Editar Livro</h1>
       <input name="nome" onChange={handleChange} value={form.nome} placeholder="Nome" required />
       <input name="genero" onChange={handleChange} value={form.genero} placeholder="Gênero" required />
       <input name="editora" onChange={handleChange} value={form.editora} placeholder="Editora" required />
       <input name="num_paginas" type="number" onChange={handleChange} value={form.num_paginas} placeholder="Número de Páginas" required />
       <input name="url" onChange={handleChange} value={form.url} placeholder="URL da Capa" required />
-      <button type="submit">Salvar Alterações</button>
+      <button type="submit">💾Salvar Alterações</button>
     </form>
   );
 }
