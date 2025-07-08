@@ -42,6 +42,13 @@ exports.listarLivroPeloId = (req, res) => {
   return sendResponse(req, res, "livro", livro);
 };
 
+//================================================================
+//   Samuel acima
+//
+//
+//  franklin Para baixo
+//=================================================================
+
 // Criar um novo livro
 exports.criarLivro = (req, res) => {
   let nome, editora, num_paginas, genero, url_capa;
