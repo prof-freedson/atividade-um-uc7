@@ -13,7 +13,7 @@ Você irá desenvolver uma aplicação completa para gerenciamento de livros, ut
 ## Frontend (Next.js)
 
 * Crie um projeto Next.js.
-* Implemente uma página principal que exiba todos os livros em formato de lista ou cartões. Cada livro deve ter o nome, o gênero e três botões: “Ver”, “Editar” e “Remover”.
+* Implemente uma página principal que exiba todos os livros em formato de lista ou cartões. Cada livro deve ter a capa, o nome, o gênero e três botões: “Ver”, “Editar” e “Remover”.
 * Implemente uma página de detalhes do livro, acessada pelo botão “Ver”.
 * Implemente uma página de edição do livro, acessada pelo botão “Editar”.
 * A remoção do livro deve ser feita diretamente na página principal, sem página específica.
