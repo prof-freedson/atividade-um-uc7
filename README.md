@@ -21,7 +21,7 @@ Você irá desenvolver uma aplicação completa para gerenciamento de livros, ut
 * O frontend deve consumir a API criada no backend para todas as operações (listar, buscar, criar, editar, remover).
 * **ATENÇÃO:** a modelagem das páginas deve seguir um layout simples e sem muitos efeitos adicionais em CSS ou JavaScript.
 
-# Entrega: prazo até 07/07/2025
+# Entrega: prazo até 08/07/2025
 
 * **ATENÇÃO:** todos devem participar da atividade implementando uma das partes da atividade (Backend ou Frontend)
 * A atividade deve ser entregue utilizando este repositório.
