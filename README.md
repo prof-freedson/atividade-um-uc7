@@ -52,12 +52,11 @@ Abra a pasta que será usada no Terminal para executar o comando acima
 * Beatriz
 * Marques
 * Ranna
-* Yorhannes
+* Ramos
 
 ## Backend
 * Deyse
 * Edmilson
 * Thiago
 * Franklin
-* Ramos
 * Samuel 
