@@ -43,11 +43,17 @@ exports.listarUsuarioPeloId = (req, res) => {
 };
 
 //================================================================
-//   Samuel acima
+//                      Seção: Samuel (acima)
 //
+//  Código relacionado à funcionalidade desenvolvida por Samuel
+//================================================================
+
+
+//================================================================
+//                      Seção: Franklin (abaixo)
 //
-//  franklin Para baixo
-//=================================================================
+//  Código relacionado à funcionalidade desenvolvida por Franklin
+//================================================================
 
 // Criar um novo usuario
 exports.criarLivro = (req, res) => {
