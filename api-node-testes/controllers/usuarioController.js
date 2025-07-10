@@ -1,4 +1,4 @@
-const livroModel = require("../models/livroModel");
+const usuarioModel = require("../models/usuarioModel");
 const js2xmlparser = require("js2xmlparser");
 
 function aceitaXml(req) {
@@ -15,31 +15,31 @@ function sendResponse(req, res, root, data, status = 200) {
   return res.status(status).json(data);
 }
 
-// Listar todos os livros
-exports.listarLivros = (req, res) => {
-  const livros = livroModel.listarLivros();
-  if (livros.length === 0) {
+// Listar todos os usuarios
+exports.listarUsuarios = (req, res) => {
+  const usuarios = usuarioModel.listarUsuarios();
+  if (Usuario.length === 0) {
     return sendResponse(req, res, "response", {
-      mensagem: "Nenhum livro encontrado",
+      mensagem: "Nenhum usuário encontrado",
     });
   }
-  return sendResponse(req, res, "livros", { livro: livros });
+  return sendResponse(req, res, "usuarios", { usuario: usuarios });
 };
 
-// Listar um livro pelo ID
-exports.listarLivroPeloId = (req, res) => {
+// Listar um usuario pelo ID
+exports.listarUsuarioPeloId = (req, res) => {
   const id = parseInt(req.params.id);
-  const livro = livroModel.listarLivroPeloId(id);
-  if (!livro) {
+  const usuario = usuarioModel.listarUsuarioPeloId(id);
+  if (!usuario) {
     return sendResponse(
       req,
       res,
       "response",
-      { mensagem: "Livro não encontrado" },
+      { mensagem: "Usuário não encontrado" },
       404
     );
   }
-  return sendResponse(req, res, "livro", livro);
+  return sendResponse(req, res, "usuario", usuario);
 };
 
 //================================================================
@@ -49,7 +49,7 @@ exports.listarLivroPeloId = (req, res) => {
 //  franklin Para baixo
 //=================================================================
 
-// Criar um novo livro
+// Criar um novo usuario
 exports.criarLivro = (req, res) => {
   let nome, editora, num_paginas, genero, url_capa;
 
