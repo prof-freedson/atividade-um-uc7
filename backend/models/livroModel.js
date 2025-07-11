@@ -41,21 +41,22 @@ function listarLivroPeloId(id) {
   return livros.find((u) => u.id === id);
 }
 
-function criarLivro(nome, editora, num_paginas, genero, url_capa) {
-  const novoLivro = { id: proximoId++, nome, editora, num_paginas, genero, url_capa };
+function criarLivro(nome, editora, num_paginas, genero, autor, url_capa) {
+  const novoLivro = { id: proximoId++, nome, editora, num_paginas, genero, autor, url_capa };
   livros.push(novoLivro);
   salvarLivrosEmArquivo();
   return novoLivro;
 }
 
-function atualizarLivro(id, nome, editora, num_paginas, genero, url_livro) {
+function atualizarLivro(id, nome, editora, num_paginas, genero, autor, url_capa) {
   const index = livros.findIndex((u) => u.id === id);
   if (index === -1) return null;
   if (nome) livros[index].nome = nome;
   if (editora) livros[index].editora = editora;
   if (num_paginas) livros[index].num_paginas = num_paginas;
   if (genero) livros[index].genero = genero;
-  if (url_livro) livros[index].url_paginas = url_livro;
+  if (autor) livros[index].autor = autor;
+  if (url_capa) livros[index].url_capa = url_capa;
   salvarLivrosEmArquivo();
   return livros[index];
 }
