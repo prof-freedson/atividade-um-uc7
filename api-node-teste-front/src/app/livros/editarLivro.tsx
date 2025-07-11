@@ -1,41 +1,42 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import axios from 'axios';
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function EditarLivro() {
-  const [form, setForm] = useState({ titulo: '', editora: '', num_paginas: 0, genero: '', autor: '', url: '' });
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const id = searchParams.get('id');
+  const { id } = router.query;
+  const [form, setForm] = useState({ nome: "", genero: "", editora: "", num_paginas: 0, url: "" });
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:3001/livros/${id}`)
-        .then(response => setForm(response.data));
+      fetch(`http://localhost:3000/livros/${id}`)
+        .then((res) => res.json())
+        .then((data) => setForm(data));
     }
   }, [id]);
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await axios.put(`http://localhost:3001/livros/${id}`, form);
-    router.push('/livros');
+    await fetch(`http://localhost:3000/livros/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+    router.push("/livros");
   };
 
   return (
-    <form onSubmit={handleSubmit} >
-      <h2>Editar Livro</h2>
-      <input name="titulo" placeholder="Título" value={form.titulo} onChange={handleChange} required />
-      <input name="editora" placeholder="Editora" value={form.editora} onChange={handleChange} required />
-      <input name="num_paginas" type="number" placeholder="Número de páginas" value={form.num_paginas} onChange={handleChange} required />
-      <input name="genero" placeholder="Gênero" value={form.genero} onChange={handleChange} required />
-      <input name="autor" placeholder="Autor" value={form.autor} onChange={handleChange} required />
-      <input name="url" placeholder="URL da capa" value={form.url} onChange={handleChange} required />
-      <button type="submit">Atualizar</button>
+    <form onSubmit={handleSubmit}>
+      <h1>📚Editar Livro</h1>
+      <input name="nome" onChange={handleChange} value={form.nome} placeholder="Nome" required />
+      <input name="genero" onChange={handleChange} value={form.genero} placeholder="Gênero" required />
+      <input name="editora" onChange={handleChange} value={form.editora} placeholder="Editora" required />
+      <input name="num_paginas" type="number" onChange={handleChange} value={form.num_paginas} placeholder="Número de Páginas" required />
+      <input name="url" onChange={handleChange} value={form.url} placeholder="URL da Capa" required />
+      <button type="submit">💾Salvar</button>
     </form>
   );
 }
