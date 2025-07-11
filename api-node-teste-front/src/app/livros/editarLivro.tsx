@@ -36,7 +36,7 @@ export default function EditarLivro() {
       <input name="editora" onChange={handleChange} value={form.editora} placeholder="Editora" required />
       <input name="num_paginas" type="number" onChange={handleChange} value={form.num_paginas} placeholder="Número de Páginas" required />
       <input name="url" onChange={handleChange} value={form.url} placeholder="URL da Capa" required />
-      <button type="submit">💾Salvar Alterações</button>
+      <button type="submit">💾Salvar</button>
     </form>
   );
 }
