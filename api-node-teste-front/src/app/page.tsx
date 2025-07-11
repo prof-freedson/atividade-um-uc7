@@ -1,13 +1,32 @@
-"use client";
-import Link from 'next/link';
-import axios from 'axios';
+'use client';
 
-async function getLivro(id: string) {
-  const res = await axios.get(`http://localhost:3001/livros/${id}`);
-  return res.data;
-}
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+
+type Livro = {
+  id: number;
+  nome: string;
+  genero: string;
+};
 
 export default function HomePage() {
+  const [livros, setLivros] = useState<Livro[]>([]);
+
+  const fetchLivros = async () => {
+    const res = await fetch('http://localhost:3001/livros'); // Ajuste a URL da sua API
+    const data = await res.json();
+    setLivros(data);
+  };
+
+  useEffect(() => {
+    fetchLivros();
+  }, []);
+
+  const removerLivro = async (id: number) => {
+    await fetch(`http://localhost:3001/livros/${id}`, { method: 'DELETE' });
+    fetchLivros();
+  };
+
   return (
     <main >
       
@@ -20,6 +39,7 @@ export default function HomePage() {
         <Link href="/livros">
           { <button>Gerenciar Livros</button> }
         </Link>
+
       </div>
     </main>
   );
