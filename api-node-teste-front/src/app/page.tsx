@@ -10,7 +10,9 @@ async function getLivro(id: string) {
 export default function HomePage() {
   return (
     <main >
+      
       <h1>Biblioteca Digital</h1>
+      <h2>Formulário</h2>
       <div >
         <Link href="/usuarios">
           <button >Gerenciar Usuários</button>
