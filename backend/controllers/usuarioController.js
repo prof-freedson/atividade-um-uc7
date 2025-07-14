@@ -90,7 +90,7 @@ exports.criarUsuario = (req, res) => {
 //
 //  Código relacionado à funcionalidade desenvolvida por Franklin
 //================================================================
-  return sendResponse(req, res, "livro", novoLivro, 201);
+  return sendResponse(req, res, "usuario", novoUsuario, 201);
 };
 
 // Atualizar um livro
