@@ -111,12 +111,14 @@ exports.atualizarUsuario = (req, res) => {
     ({ nome, data_nascimento, email, telefone, cidade, estado, url_imagem } = req.body);
   }
 
-  const livroAtualizado = livroModel.atualizarLivro(id, {
+  const usuarioAtualizado = usuarioModel.atualizarUsuario(id, {
     nome,
-    editora,
-    num_paginas,
-    genero,
-    url_capa,
+    data_nascimento,
+    email,
+    telefone,
+    cidade,
+    estado,
+    url_imagem,
   });
 
   if (!livroAtualizado) {
