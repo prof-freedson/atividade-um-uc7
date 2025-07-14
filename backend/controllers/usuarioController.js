@@ -131,7 +131,7 @@ exports.atualizarUsuario = (req, res) => {
     );
   }
 
-  return sendResponse(req, res, "livro", livroAtualizado);
+  return sendResponse(req, res, "usuario", usuarioAtualizado);
 };
 
 // Remover um livro
