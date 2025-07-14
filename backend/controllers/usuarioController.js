@@ -56,7 +56,7 @@ exports.criarUsuario = (req, res) => {
     estado = dados?.estado?.[0];
     url_imagem = dados?.url_imagem?.[0];
   } else {
-    ({ nome, data_nascimento, email, telefone, cidade, estado, url_imagem} = req.body);           //nome, data_nascimento, email, telefone, cidade, estado, url_imagem
+    ({ nome, data_nascimento, email, telefone, cidade, estado, url_imagem} = req.body);           
   }
 
   if (!nome || !data_nascimento|| !email || !telefone|| !cidade || !estado || !url_imagem) {
@@ -94,19 +94,21 @@ exports.criarUsuario = (req, res) => {
 };
 
 // Atualizar um livro
-exports.atualizarLivro = (req, res) => {
+exports.atualizarUsuario = (req, res) => {
   const id = parseInt(req.params.id);
-  let nome, editora, num_paginas, genero, url_capa;
+  let nome, data_nascimento, email, telefone, cidade, estado, url_imagem;
 
   if (req.is("application/xml")) {
     const dados = req.body.livro;
     nome = dados?.nome?.[0];
-    editora = dados?.editora?.[0];
-    num_paginas = parseInt(dados?.num_paginas?.[0]);
-    genero = dados?.genero?.[0];
-    url_capa = dados?.url_capa?.[0];
+    data_nascimento = dados?.data_nascimento?.[0];
+    email = dados?.email?.[0];
+    telefone = dados?.telefone?.[0];
+    cidade = dados?.cidade?.[0];
+    estado = dados?.estado?.[0];
+    url_imagem = dados?.url_imagem?.[0];
   } else {
-    ({ nome, editora, num_paginas, genero, url_capa } = req.body);
+    ({ nome, data_nascimento, email, telefone, cidade, estado, url_imagem } = req.body);
   }
 
   const livroAtualizado = livroModel.atualizarLivro(id, {
