@@ -18,7 +18,7 @@ function sendResponse(req, res, root, data, status = 200) {
 // Listar todos os usuarios
 exports.listarUsuarios = (req, res) => {
   const usuarios = usuarioModel.listarUsuarios();
-  if (Usuario.length === 0) {
+  if (usuarios.length === 0) {
     return sendResponse(req, res, "response", {
       mensagem: "Nenhum usuário encontrado",
     });
