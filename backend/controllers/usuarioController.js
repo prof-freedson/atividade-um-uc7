@@ -78,11 +78,6 @@ exports.criarUsuario = (req, res) => {
     estado,
     url_imagem,
   });
-//================================================================
-//                      Seção: Samuel (acima)
-//
-//  Código relacionado à funcionalidade desenvolvida por Samuel
-//================================================================
 
   return sendResponse(req, res, "usuario", novoUsuario, 201);
 };
