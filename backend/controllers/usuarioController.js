@@ -135,7 +135,7 @@ exports.atualizarUsuario = (req, res) => {
 };
 
 // Remover um livro
-exports.removerLivro = (req, res) => {
+exports.removerUsuario = (req, res) => {
   const id = parseInt(req.params.id);
   const removido = livroModel.removerLivro(id);
   if (!removido) {
