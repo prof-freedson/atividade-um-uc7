@@ -137,7 +137,7 @@ exports.atualizarUsuario = (req, res) => {
 // Remover um livro
 exports.removerUsuario = (req, res) => {
   const id = parseInt(req.params.id);
-  const removido = livroModel.removerLivro(id);
+  const removido = usuarioModel.removerUsuario(id);
   if (!removido) {
     return sendResponse(
       req,
