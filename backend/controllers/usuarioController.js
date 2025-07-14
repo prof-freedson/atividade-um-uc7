@@ -42,19 +42,6 @@ exports.listarUsuarioPeloId = (req, res) => {
   return sendResponse(req, res, "usuario", usuario);
 };
 
-//================================================================
-//                      Seção: Samuel (acima)
-//
-//  Código relacionado à funcionalidade desenvolvida por Samuel
-//================================================================
-
-
-//================================================================
-//                      Seção: Franklin (abaixo)
-//
-//  Código relacionado à funcionalidade desenvolvida por Franklin
-//================================================================
-
 // Criar um novo usuario
 exports.criarUsuario = (req, res) => {
   let nome, data_nascimento, email, telefone, cidade, estado, url_imagem;
@@ -91,7 +78,18 @@ exports.criarUsuario = (req, res) => {
     estado,
     url_imagem,
   });
+//================================================================
+//                      Seção: Samuel (acima)
+//
+//  Código relacionado à funcionalidade desenvolvida por Samuel
+//================================================================
 
+
+//================================================================
+//                      Seção: Franklin (abaixo)
+//
+//  Código relacionado à funcionalidade desenvolvida por Franklin
+//================================================================
   return sendResponse(req, res, "livro", novoLivro, 201);
 };
 
