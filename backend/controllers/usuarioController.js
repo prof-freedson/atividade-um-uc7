@@ -82,12 +82,14 @@ exports.criarUsuario = (req, res) => {
     );
   }
 
-  const novoLivro = livroModel.criarLivro({
+  const novoUsuario = usuarioModel.criarUsuario({
     nome,
-    editora,
-    num_paginas,
-    genero,
-    url_capa,
+    data_nascimento,
+    email,
+    telefone,
+    cidade,
+    estado,
+    url_imagem,
   });
 
   return sendResponse(req, res, "livro", novoLivro, 201);
