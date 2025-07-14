@@ -3,11 +3,18 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
 
+type Usuario = {
+  id: number;
+  nome: string;
+  email: string;
+  url: string;
+};
+
 export default function UsuariosPage() {
-  const [usuarios, setUsuarios] = useState([]);
+  const [usuarios, setUsuarios] = useState<Usuario[]>([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/usuarios')
+    axios.get<Usuario[]>('http://localhost:3001/usuarios')
       .then(response => setUsuarios(response.data))
       .catch(error => console.error(error));
   }, []);
