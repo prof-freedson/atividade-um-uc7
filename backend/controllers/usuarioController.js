@@ -126,7 +126,7 @@ exports.atualizarUsuario = (req, res) => {
       req,
       res,
       "response",
-      { mensagem: "Livro não encontrado" },
+      { mensagem: "Usuario não encontrado" },
       404
     );
   }
