@@ -121,7 +121,7 @@ exports.atualizarUsuario = (req, res) => {
     url_imagem,
   });
 
-  if (!livroAtualizado) {
+  if (!usuarioAtualizado) {
     return sendResponse(
       req,
       res,
