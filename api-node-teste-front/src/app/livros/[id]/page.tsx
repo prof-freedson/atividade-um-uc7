@@ -1,8 +1,17 @@
 "use client";
 import axios from 'axios';
 
-async function getLivro(id: string) {
-  const res = await axios.get(`http://localhost:3001/livros/${id}`);
+type Livro = {
+  url: string;
+  titulo: string;
+  editora: string;
+  num_paginas: number;
+  genero: string;
+  autor: string;
+};
+
+async function getLivro(id: string): Promise<Livro> {
+  const res = await axios.get<Livro>(`http://localhost:3001/livros/${id}`);
   return res.data;
 }
 
