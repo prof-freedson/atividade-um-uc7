@@ -72,12 +72,12 @@ exports.criarUsuario = (req, res) => {
     ({ nome, data_nascimento, email, telefone, cidade, estado, url_imagem} = req.body);           //nome, data_nascimento, email, telefone, cidade, estado, url_imagem
   }
 
-  if (!nome || !editora || !num_paginas || !genero || !url_capa) {
+  if (!nome || !data_nascimento|| !email || !telefone|| !cidade || !estado || !url_imagem) {
     return sendResponse(
       req,
       res,
       "response",
-      { mensagem: "Todos os campos do livro são obrigatórios!" },
+      { mensagem: "Todos os campos do usuário são obrigatórios!" },
       400
     );
   }
