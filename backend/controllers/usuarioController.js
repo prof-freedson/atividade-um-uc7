@@ -47,7 +47,7 @@ exports.criarUsuario = (req, res) => {
   let nome, data_nascimento, email, telefone, cidade, estado, url_imagem;
 
   if (req.is("application/xml")) {
-    const dados = req.body.livro;
+    const dados = req.body.usuario;
     nome = dados?.nome?.[0];
     data_nascimento = dados?.data_nascimento?.[0];
     email = dados?.email?.[0];
@@ -78,28 +78,17 @@ exports.criarUsuario = (req, res) => {
     estado,
     url_imagem,
   });
-//================================================================
-//                      Seção: Samuel (acima)
-//
-//  Código relacionado à funcionalidade desenvolvida por Samuel
-//================================================================
 
-
-//================================================================
-//                      Seção: Franklin (abaixo)
-//
-//  Código relacionado à funcionalidade desenvolvida por Franklin
-//================================================================
   return sendResponse(req, res, "usuario", novoUsuario, 201);
 };
 
-// Atualizar um livro
+// Atualizar um usuario
 exports.atualizarUsuario = (req, res) => {
   const id = parseInt(req.params.id);
   let nome, data_nascimento, email, telefone, cidade, estado, url_imagem;
 
   if (req.is("application/xml")) {
-    const dados = req.body.livro;
+    const dados = req.body.usuario;
     nome = dados?.nome?.[0];
     data_nascimento = dados?.data_nascimento?.[0];
     email = dados?.email?.[0];
@@ -134,7 +123,7 @@ exports.atualizarUsuario = (req, res) => {
   return sendResponse(req, res, "usuario", usuarioAtualizado);
 };
 
-// Remover um livro
+// Remover um usuario
 exports.removerUsuario = (req, res) => {
   const id = parseInt(req.params.id);
   const removido = usuarioModel.removerUsuario(id);
@@ -143,11 +132,11 @@ exports.removerUsuario = (req, res) => {
       req,
       res,
       "response",
-      { mensagem: "Livro não encontrado" },
+      { mensagem: "Usuário não encontrado" },
       404
     );
   }
   return sendResponse(req, res, "response", {
-    mensagem: "Livro removido com sucesso",
+    mensagem: "Usuario removido com sucesso",
   });
 };
