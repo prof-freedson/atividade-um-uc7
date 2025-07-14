@@ -1,8 +1,18 @@
 "use client";
 import axios from 'axios';
 
-async function getUsuario(id: string) {
-  const res = await axios.get(`http://localhost:3001/usuarios/${id}`);
+type Usuario = {
+  url: string;
+  nome: string;
+  email: string;
+  nascimento: string;
+  telefone: string;
+  cidade: string;
+  estado: string;
+};
+
+async function getUsuario(id: string): Promise<Usuario> {
+  const res = await axios.get<Usuario>(`http://localhost:3001/usuarios/${id}`);
   return res.data;
 }
 
@@ -22,3 +32,4 @@ export default async function UsuarioDetalhes({ params }: any) {
     </div>
   );
 }
+ 
