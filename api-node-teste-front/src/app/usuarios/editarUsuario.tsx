@@ -11,7 +11,15 @@ export default function EditarUsuario() {
 
   useEffect(() => {
     if (id) {
-      axios.get(`http://localhost:3001/usuarios/${id}`)
+      axios.get<{ 
+        nome: string; 
+        nascimento: string; 
+        email: string; 
+        telefone: string; 
+        cidade: string; 
+        estado: string; 
+        url: string 
+      }>(`http://localhost:3001/usuarios/${id}`)
         .then(response => setForm(response.data));
     }
   }, [id]);

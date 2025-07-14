@@ -18,7 +18,7 @@ function sendResponse(req, res, root, data, status = 200) {
 // Listar todos os usuarios
 exports.listarUsuarios = (req, res) => {
   const usuarios = usuarioModel.listarUsuarios();
-  if (Usuario.length === 0) {
+  if (usuarios.length === 0) {
     return sendResponse(req, res, "response", {
       mensagem: "Nenhum usuário encontrado",
     });
@@ -42,106 +42,101 @@ exports.listarUsuarioPeloId = (req, res) => {
   return sendResponse(req, res, "usuario", usuario);
 };
 
-//================================================================
-//                      Seção: Samuel (acima)
-//
-//  Código relacionado à funcionalidade desenvolvida por Samuel
-//================================================================
-
-
-//================================================================
-//                      Seção: Franklin (abaixo)
-//
-//  Código relacionado à funcionalidade desenvolvida por Franklin
-//================================================================
-
 // Criar um novo usuario
-exports.criarLivro = (req, res) => {
-  let nome, editora, num_paginas, genero, url_capa;
+exports.criarUsuario = (req, res) => {
+  let nome, data_nascimento, email, telefone, cidade, estado, url_imagem;
 
   if (req.is("application/xml")) {
-    const dados = req.body.livro;
+    const dados = req.body.usuario;
     nome = dados?.nome?.[0];
-    editora = dados?.editora?.[0];
-    num_paginas = parseInt(dados?.num_paginas?.[0]);
-    genero = dados?.genero?.[0];
-    url_capa = dados?.url_capa?.[0];
+    data_nascimento = dados?.data_nascimento?.[0];
+    email = dados?.email?.[0];
+    telefone = dados?.telefone?.[0];
+    cidade = dados?.cidade?.[0];
+    estado = dados?.estado?.[0];
+    url_imagem = dados?.url_imagem?.[0];
   } else {
-    ({ nome, editora, num_paginas, genero, url_capa } = req.body);
+    ({ nome, data_nascimento, email, telefone, cidade, estado, url_imagem} = req.body);           
   }
 
-  if (!nome || !editora || !num_paginas || !genero || !url_capa) {
+  if (!nome || !data_nascimento|| !email || !telefone|| !cidade || !estado || !url_imagem) {
     return sendResponse(
       req,
       res,
       "response",
-      { mensagem: "Todos os campos do livro são obrigatórios!" },
+      { mensagem: "Todos os campos do usuário são obrigatórios!" },
       400
     );
   }
 
-  const novoLivro = livroModel.criarLivro({
+  const novoUsuario = usuarioModel.criarUsuario({
     nome,
-    editora,
-    num_paginas,
-    genero,
-    url_capa,
+    data_nascimento,
+    email,
+    telefone,
+    cidade,
+    estado,
+    url_imagem,
   });
 
-  return sendResponse(req, res, "livro", novoLivro, 201);
+  return sendResponse(req, res, "usuario", novoUsuario, 201);
 };
 
-// Atualizar um livro
-exports.atualizarLivro = (req, res) => {
+// Atualizar um usuario
+exports.atualizarUsuario = (req, res) => {
   const id = parseInt(req.params.id);
-  let nome, editora, num_paginas, genero, url_capa;
+  let nome, data_nascimento, email, telefone, cidade, estado, url_imagem;
 
   if (req.is("application/xml")) {
-    const dados = req.body.livro;
+    const dados = req.body.usuario;
     nome = dados?.nome?.[0];
-    editora = dados?.editora?.[0];
-    num_paginas = parseInt(dados?.num_paginas?.[0]);
-    genero = dados?.genero?.[0];
-    url_capa = dados?.url_capa?.[0];
+    data_nascimento = dados?.data_nascimento?.[0];
+    email = dados?.email?.[0];
+    telefone = dados?.telefone?.[0];
+    cidade = dados?.cidade?.[0];
+    estado = dados?.estado?.[0];
+    url_imagem = dados?.url_imagem?.[0];
   } else {
-    ({ nome, editora, num_paginas, genero, url_capa } = req.body);
+    ({ nome, data_nascimento, email, telefone, cidade, estado, url_imagem } = req.body);
   }
 
-  const livroAtualizado = livroModel.atualizarLivro(id, {
+  const usuarioAtualizado = usuarioModel.atualizarUsuario(id, {
     nome,
-    editora,
-    num_paginas,
-    genero,
-    url_capa,
+    data_nascimento,
+    email,
+    telefone,
+    cidade,
+    estado,
+    url_imagem,
   });
 
-  if (!livroAtualizado) {
+  if (!usuarioAtualizado) {
     return sendResponse(
       req,
       res,
       "response",
-      { mensagem: "Livro não encontrado" },
+      { mensagem: "Usuario não encontrado" },
       404
     );
   }
 
-  return sendResponse(req, res, "livro", livroAtualizado);
+  return sendResponse(req, res, "usuario", usuarioAtualizado);
 };
 
-// Remover um livro
-exports.removerLivro = (req, res) => {
+// Remover um usuario
+exports.removerUsuario = (req, res) => {
   const id = parseInt(req.params.id);
-  const removido = livroModel.removerLivro(id);
+  const removido = usuarioModel.removerUsuario(id);
   if (!removido) {
     return sendResponse(
       req,
       res,
       "response",
-      { mensagem: "Livro não encontrado" },
+      { mensagem: "Usuário não encontrado" },
       404
     );
   }
   return sendResponse(req, res, "response", {
-    mensagem: "Livro removido com sucesso",
+    mensagem: "Usuario removido com sucesso",
   });
 };
