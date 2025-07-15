@@ -9,11 +9,11 @@ router.get("/", (req, res) => {
 });
 
 // Rotas CRUD para livros
-router.route("/livros")
+router.route("/")
   .get(livroController.listarLivros)       // GET /livros
   .post(livroController.criarLivro);       // POST /livros
 
-router.route("/livros/:id")
+router.route("/:id")
   .get(livroController.listarLivroPeloId)  // GET /livros/:id
   .put(livroController.atualizarLivro)     // PUT /livros/:id
   .delete(livroController.removerLivro);   // DELETE /livros/:id

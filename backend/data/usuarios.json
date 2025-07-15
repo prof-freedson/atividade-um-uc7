@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "nome": {
+      "nome": "Alice",
+      "data_nascimento": "26/07/1998",
+      "email": "alice@email.com",
+      "telefone": "(98)9778-9888",
+      "cidade": "QueSono",
+      "estado": "Sidney",
+      "url_imagem": "imagemAlice.com"
+    }
+  }
+]

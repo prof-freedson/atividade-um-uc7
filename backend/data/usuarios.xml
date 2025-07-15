@@ -1,0 +1,21 @@
+<?xml version='1.0'?>
+<usuarios>
+    <usuario>
+        <id>1</id>
+        <nome>
+            <nome>Alice</nome>
+            <data_nascimento>26/07/1998</data_nascimento>
+            <email>alice@email.com</email>
+            <telefone>(98)9778-9888</telefone>
+            <cidade>QueSono</cidade>
+            <estado>Sidney</estado>
+            <url_imagem>imagemAlice.com</url_imagem>
+        </nome>
+        <data_nascimento>undefined</data_nascimento>
+        <email>undefined</email>
+        <telefone>undefined</telefone>
+        <cidade>undefined</cidade>
+        <estado>undefined</estado>
+        <url_imagem>undefined</url_imagem>
+    </usuario>
+</usuarios>
