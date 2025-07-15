@@ -1,6 +1,7 @@
 "use client";
 import axios from 'axios';
 
+//tipos de dados do livro
 type Livro = {
   url: string;
   titulo: string;
@@ -15,7 +16,7 @@ async function getLivro(id: string): Promise<Livro> {
   return res.data;
 }
 
-export default async function LivroDetalhes({ params }: any) {
+export default async function LivroDetalhes({ params }: any) { 
   const livro = await getLivro(params.id);
 
   return (
