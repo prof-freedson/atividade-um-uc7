@@ -10,6 +10,7 @@ type Livro = {
   autor: string;
 };
 
+
 async function getLivro(id: string): Promise<Livro | null> {
   try {
     const res = await axios.get<Livro>(`http://localhost:3001/livros/${id}`);
