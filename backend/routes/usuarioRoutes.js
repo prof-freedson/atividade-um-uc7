@@ -9,11 +9,11 @@ router.get("/", (req, res) => {
 });
 
 // Rotas CRUD para usuários
-router.route("/usuarios")
+router.route("/")
   .get(usuarioController.listarUsuarios)       // GET /usuarios
   .post(usuarioController.criarUsuario);       // POST /usuarios
 
-router.route("/usuarios/:id")
+router.route("/:id")
   .get(usuarioController.listarUsuarioPeloId)  // GET /usuarios/:id
   .put(usuarioController.atualizarUsuario)     // PUT /usuarios/:id
   .delete(usuarioController.removerUsuario);   // DELETE /usuarios/:id

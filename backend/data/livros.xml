@@ -3,15 +3,17 @@
     <livro>
         <id>1</id>
         <nome>
-            <nome>Seu esperto</nome>
-            <editora>Real</editora>
-            <num_paginas>23</num_paginas>
+            <nome>A culpa é das estrelas</nome>
+            <editora>Estrela brilha</editora>
+            <num_paginas>45</num_paginas>
             <genero>Suspense</genero>
-            <url_capa>seulivro.com</url_capa>
+            <autor>Seu Zé</autor>
+            <url_capa>http://sejafeliz.com</url_capa>
         </nome>
         <editora>undefined</editora>
         <num_paginas>undefined</num_paginas>
         <genero>undefined</genero>
+        <autor>undefined</autor>
         <url_capa>undefined</url_capa>
     </livro>
 </livros>
