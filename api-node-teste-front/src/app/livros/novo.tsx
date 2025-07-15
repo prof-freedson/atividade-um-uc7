@@ -8,7 +8,7 @@ export default function NovoLivro() {
   const handleChange = (e: any) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
+//movido
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     await fetch("http://localhost:3000/livros", {
