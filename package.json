@@ -1,8 +1,15 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "axios": "^1.10.0"
   },
   "devDependencies": {
     "@types/axios": "^0.9.36"
+=======
+    "express": "^5.1.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5"
+>>>>>>> df60b8c55e4a79a5d69a3e7ebce88ff5eee1122b
   }
 }
+
