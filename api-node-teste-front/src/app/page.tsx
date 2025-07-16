@@ -41,6 +41,15 @@ export default function HomePage() {
         </Link>
 
       </div>
+      <h2>Lista de Livros</h2>
+      <ul>
+        {livros.map((livro) => (
+          <li key={livro.id}>
+            {livro.nome} - {livro.genero}
+            <button onClick={() => removerLivro(livro.id)}>Remover</button>
+          </li>
+        ))}
+      </ul>
     </main>
   );
 }
