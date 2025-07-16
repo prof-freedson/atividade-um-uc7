@@ -2,12 +2,23 @@
   {
     "id": 1,
     "nome": {
+      "nome": "O Pequeno Principe",
+      "editora": "Princesa",
+      "num_paginas": 125,
+      "genero": "Aventura",
+      "autor": "Antoine de Saint-Exupéry",
+      "url_capa": "https://upload.wikimedia.org/wikipedia/pt/4/47/O-pequeno-pr%C3%ADncipe.jpg"
+    }
+  },
+  {
+    "id": 2,
+    "nome": {
       "nome": "A culpa é das estrelas",
-      "editora": "Estrela brilha",
-      "num_paginas": 45,
+      "editora": "Estrela feliz",
+      "num_paginas": 78,
       "genero": "Suspense",
-      "autor": "Seu Zé",
-      "url_capa": "http://sejafeliz.com"
+      "autor": "John Green",
+      "url_capa": "https://cdn.dooca.store/81243/products/45vzk9n3m9nlw1lfchyzktlslrsjsphhfmb7.jpg?v=1667238487"
     }
   }
 ]
