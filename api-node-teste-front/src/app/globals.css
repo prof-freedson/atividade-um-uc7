@@ -1,19 +1,90 @@
-body {
-  font-family: sans-serif;
-  background-color: #f7f7f7;
+/* Reset básico */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Corpo geral */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container principal */
+main {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Títulos */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  color: #444;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+/* Inputs */
 input {
   display: block;
   margin-bottom: 1rem;
-  padding: 0.5rem;
+  padding: 0.75rem 1rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+input:focus {
+  border-color: #0070f3;
+  box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.2);
+  outline: none;
+}
+
+/* Botões */
 button {
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+/* Listas */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+} 
+/* lista */
+
+li {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
 }

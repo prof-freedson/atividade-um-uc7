@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-
 type Livro = {
   url: string;
   titulo: string;
@@ -11,6 +10,7 @@ type Livro = {
   genero: string;
   autor: string;
 };
+
 
 async function getLivro(id: string): Promise<Livro | null> {
   try {
@@ -40,6 +40,11 @@ const LivroDetalhes = ({ params }: LivroDetalhesProps) => {
 
   if (loading) return <div>Carregando...</div>;
   if (!livro) return <div>Livro não encontrado.</div>;
+
+
+  if (!livro) {
+    notFound(); 
+  }
 
   return (
     <div>
