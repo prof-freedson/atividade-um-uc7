@@ -1,5 +1,7 @@
-"use client";
-import axios from 'axios';
+
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
 
 type Livro = {
   url: string;
@@ -10,40 +12,56 @@ type Livro = {
   autor: string;
 };
 
-async function getLivro(id: string): Promise<Livro> {
-  const res = await axios.get<Livro>(`http://localhost:3001/livros/${id}`);
-  return res.data;
+async function getLivro(id: string): Promise<Livro | null> {
+  try {
+    const res = await fetch(`http://localhost:3001/livros/${id}`, { cache: 'no-store' });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
+    return null;
+  }
 }
 
 interface LivroDetalhesProps {
   params: { id: string };
 }
 
-export default async function LivroDetalhes({ params }: LivroDetalhesProps) {
-  const livro = await getLivro(params.id);
-return (
-  <div>
-    <h2>Detalhes do Livro</h2>
 
-    <img src={livro.url} alt={livro.titulo} style={{ maxWidth: '100%', height: 'auto' }} />
+const LivroDetalhes = ({ params }: LivroDetalhesProps) => {
+  const [livro, setLivro] = useState<Livro | null>(null);
+  const [loading, setLoading] = useState(true);
 
-    <p>
-      <strong>Título:</strong> {livro.titulo}
-    </p>
-    <p>
-      <strong>Editora:</strong> {livro.editora}
-    </p>
-    <p>
-      <strong>Número de Páginas:</strong> {livro.num_paginas}
-    </p>
-    <p>
-      <strong>Gênero:</strong> {livro.genero}
-    </p>
-    <p>
-      <strong>Autor:</strong> {livro.autor}
-    </p>
-  </div>
-);
+  useEffect(() => {
+    getLivro(params.id).then((data) => {
+      setLivro(data);
+      setLoading(false);
+    });
+  }, [params.id]);
 
+  if (loading) return <div>Carregando...</div>;
+  if (!livro) return <div>Livro não encontrado.</div>;
 
-}
+  return (
+    <div>
+      <h2>Detalhes do Livro</h2>
+      <Image src={livro.url} alt={livro.titulo} width={400} height={300} style={{ maxWidth: '100%', height: 'auto' }} />
+      <p>
+        <strong>Título:</strong> {livro.titulo}
+      </p>
+      <p>
+        <strong>Editora:</strong> {livro.editora}
+      </p>
+      <p>
+        <strong>Número de Páginas:</strong> {livro.num_paginas}
+      </p>
+      <p>
+        <strong>Gênero:</strong> {livro.genero}
+      </p>
+      <p>
+        <strong>Autor:</strong> {livro.autor}
+      </p>
+    </div>
+  );
+};
+
+export default LivroDetalhes;
