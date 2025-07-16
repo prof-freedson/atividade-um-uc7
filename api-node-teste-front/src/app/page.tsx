@@ -53,35 +53,14 @@ export default function HomePage() {
           <button>Gerenciar Livros</button>
         </Link>
       </div>
-
-      <h2>Livros Cadastrados</h2>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {livros.length === 0 ? (
-          <li>Nenhum livro cadastrado.</li>
-        ) : (
-          livros.map((livro) => (
-            <li
-              key={livro.id}
-              style={{
-                marginBottom: '1rem',
-                padding: '1rem',
-                background: '#fff',
-                borderRadius: '6px',
-                boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
-              }}
-            >
-              <strong>{livro.nome}</strong> — {livro.genero}
-              <div>
-                <button
-                  onClick={() => removerLivro(livro.id)}
-                  style={{ marginTop: '0.5rem' }}
-                >
-                  Remover
-                </button>
-              </div>
-            </li>
-          ))
-        )}
+      <h2>Lista de Livros</h2>
+      <ul>
+        {livros.map((livro) => (
+          <li key={livro.id}>
+            {livro.nome} - {livro.genero}
+            <button onClick={() => removerLivro(livro.id)}>Remover</button>
+          </li>
+        ))}
       </ul>
     </main>
   );

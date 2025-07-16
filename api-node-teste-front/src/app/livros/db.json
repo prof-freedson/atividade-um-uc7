@@ -1,0 +1,14 @@
+{
+  "livros": [
+    {
+      "id": "1",
+      "url": "https://...",
+      "titulo": "O Senhor dos Anéis",
+      "editora": "Martins Fontes",
+      "num_paginas": 500,
+      "genero": "Fantasia",
+      "autor": "J.R.R. Tolkien"
+    }
+  ],
+  "cartoes": []
+}

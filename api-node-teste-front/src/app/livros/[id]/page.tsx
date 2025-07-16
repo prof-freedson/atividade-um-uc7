@@ -1,5 +1,6 @@
-import axios from 'axios';
-import { notFound } from 'next/navigation';
+
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 type Livro = {
   url: string;
@@ -13,41 +14,59 @@ type Livro = {
 
 async function getLivro(id: string): Promise<Livro | null> {
   try {
-    const res = await axios.get<Livro>(`http://localhost:3001/livros/${id}`);
-    return res.data;
-  } catch (error) {
-    console.error("Erro ao buscar o livro:", error);
+    const res = await fetch(`http://localhost:3001/livros/${id}`, { cache: 'no-store' });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
     return null;
   }
 }
 
-export default async function LivroDetalhes({ params }: { params: { id: string } }) {
-  const livro = await getLivro(params.id);
+interface LivroDetalhesProps {
+  params: { id: string };
+}
+
+
+const LivroDetalhes = ({ params }: LivroDetalhesProps) => {
+  const [livro, setLivro] = useState<Livro | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getLivro(params.id).then((data) => {
+      setLivro(data);
+      setLoading(false);
+    });
+  }, [params.id]);
+
+  if (loading) return <div>Carregando...</div>;
+  if (!livro) return <div>Livro não encontrado.</div>;
+
 
   if (!livro) {
     notFound(); 
   }
 
   return (
-    <div style={{
-      maxWidth: '600px',
-      margin: '2rem auto',
-      padding: '1rem',
-      border: '1px solid #ccc',
-      borderRadius: '8px',
-      boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
-    }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>📚 Detalhes do Livro</h2>
-      <img 
-        src={livro.url} 
-        alt={`Capa do livro ${livro.titulo}`} 
-        style={{ width: '100%', height: 'auto', borderRadius: '4px', marginBottom: '1rem' }}
-      />
-      <p><strong>Título:</strong> {livro.titulo}</p>
-      <p><strong>Editora:</strong> {livro.editora}</p>
-      <p><strong>Número de Páginas:</strong> {livro.num_paginas}</p>
-      <p><strong>Gênero:</strong> {livro.genero}</p>
-      <p><strong>Autor:</strong> {livro.autor}</p>
+    <div>
+      <h2>Detalhes do Livro</h2>
+      <Image src={livro.url} alt={livro.titulo} width={400} height={300} style={{ maxWidth: '100%', height: 'auto' }} />
+      <p>
+        <strong>Título:</strong> {livro.titulo}
+      </p>
+      <p>
+        <strong>Editora:</strong> {livro.editora}
+      </p>
+      <p>
+        <strong>Número de Páginas:</strong> {livro.num_paginas}
+      </p>
+      <p>
+        <strong>Gênero:</strong> {livro.genero}
+      </p>
+      <p>
+        <strong>Autor:</strong> {livro.autor}
+      </p>
     </div>
   );
-}
+};
+
+export default LivroDetalhes;
