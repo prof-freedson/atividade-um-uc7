@@ -15,18 +15,35 @@ async function getLivro(id: string): Promise<Livro> {
   return res.data;
 }
 
-export default async function LivroDetalhes({ params }: any) {
-  const livro = await getLivro(params.id);
+interface LivroDetalhesProps {
+  params: { id: string };
+}
 
-  return (
-    <div >
-      <h2>Detalhes do Livro</h2>
-      <img src={livro.url} alt={livro.titulo}  />
-      <p><strong>Título:</strong> {livro.titulo}</p>
-      <p><strong>Editora:</strong> {livro.editora}</p>
-      <p><strong>Número de Páginas:</strong> {livro.num_paginas}</p>
-      <p><strong>Gênero:</strong> {livro.genero}</p>
-      <p><strong>Autor:</strong> {livro.autor}</p>
-    </div>
-  );
+export default async function LivroDetalhes({ params }: LivroDetalhesProps) {
+  const livro = await getLivro(params.id);
+return (
+  <div>
+    <h2>Detalhes do Livro</h2>
+
+    <img src={livro.url} alt={livro.titulo} style={{ maxWidth: '100%', height: 'auto' }} />
+
+    <p>
+      <strong>Título:</strong> {livro.titulo}
+    </p>
+    <p>
+      <strong>Editora:</strong> {livro.editora}
+    </p>
+    <p>
+      <strong>Número de Páginas:</strong> {livro.num_paginas}
+    </p>
+    <p>
+      <strong>Gênero:</strong> {livro.genero}
+    </p>
+    <p>
+      <strong>Autor:</strong> {livro.autor}
+    </p>
+  </div>
+);
+
+
 }
