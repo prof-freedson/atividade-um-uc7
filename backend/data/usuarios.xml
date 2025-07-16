@@ -3,13 +3,25 @@
     <usuario>
         <id>1</id>
         <nome>
-            <nome>Alice</nome>
-            <data_nascimento>26/07/1998</data_nascimento>
-            <email>alice@email.com</email>
-            <telefone>(98)9778-9888</telefone>
-            <cidade>QueSono</cidade>
-            <estado>Sidney</estado>
-            <url_imagem>imagemAlice.com</url_imagem>
+            <nome>Rafaela</nome>
+            <data_nascimento>26/09/2001</data_nascimento>
+            <email>rafaela@email.com</email>
+            <telefone>(98)9111-2222</telefone>
+            <cidade>Atlanta</cidade>
+            <estado>Georgia</estado>
+            <url_imagem>https://img.freepik.com/fotos-gratis/pessoa-de-origem-indiana-se-divertindo_23-2150285283.jpg?semt=ais_hybrid&amp;w=740</url_imagem>
+        </nome>
+    </usuario>
+    <usuario>
+        <id>2</id>
+        <nome>
+            <nome>Matheus</nome>
+            <data_nascimento>15/07/1999</data_nascimento>
+            <email>math@email.com</email>
+            <telefone>(98)8777-9999</telefone>
+            <cidade>Fortaleza</cidade>
+            <estado>Ceará</estado>
+            <url_imagem>https://img.freepik.com/fotos-gratis/retrato-de-homem-branco-isolado_53876-40306.jpg?semt=ais_hybrid&amp;w=740</url_imagem>
         </nome>
         <data_nascimento>undefined</data_nascimento>
         <email>undefined</email>
