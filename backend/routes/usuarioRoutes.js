@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Usando a controller através
 // de uma variável / objeto
-const livroController = require("../controllers/livroController");
+const usuarioController = require("../controllers/usuarioController");
 
 // ===============================
 // Rota inicial de um servidor
@@ -17,24 +17,24 @@ router.get("/", (req, res) => {
 });
 
 // Rota de busca de
-// todos os livros
-router.get("/livros", livroController.listarLivros);
+// todos os usuários
+router.get("/usuarios", usuarioController.listarUsuarios);
 
 // Rota de busca de
-// um só livro
-router.get("/livros/:id", livroController.listarLivroPeloId);
+// um só usuário
+router.get("/usuarios/:id", usuarioController.listarUsuarioPeloId);
 
 // Rota de criação
-// de um livro
-router.post("/livros", livroController.criarLivro);
+// de um usuário
+router.post("/usuarios", usuarioController.criarUsuario);
 
 // Rota de atualização
-// de um livro
-router.put("/livros/:id", livroController.atualizarLivro);
+// de um usuário
+router.put("/usuarios/:id", usuarioController.atualizarUsuario);
 
 // Rota de remoção
-// de um livro
-router.delete("/livros/:id", livroController.removerLivro);
+// de um usuário
+router.delete("/usuarios/:id", usuarioController.removerUsuario);
 
 // Exportando as rotas
 module.exports = router;

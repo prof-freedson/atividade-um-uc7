@@ -39,7 +39,7 @@ const LivroDetalhes = ({ params }: LivroDetalhesProps) => {
   }, [params.id]);
 
   if (loading) return <div>Carregando...</div>;
-  if (!livro) return <div>Livro não encontrado.</div>;
+  if (!livro) return <div style={{ color: 'red', fontWeight: 'bold', marginTop: 20 }}>Livro não encontrado.</div>;
 
   return (
     <div>
@@ -65,3 +65,5 @@ const LivroDetalhes = ({ params }: LivroDetalhesProps) => {
 };
 
 export default LivroDetalhes;
+
+

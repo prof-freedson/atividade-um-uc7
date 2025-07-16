@@ -51,7 +51,7 @@ exports.listarLivroPeloId = (req, res) => {
 
 // Criar um novo livro
 exports.criarLivro = (req, res) => {
-  let nome, editora, num_paginas, genero, url_capa;
+  let nome, editora, num_paginas, genero, autor, url_capa;
 
   if (req.is("application/xml")) {
     const dados = req.body.livro;
@@ -59,12 +59,13 @@ exports.criarLivro = (req, res) => {
     editora = dados?.editora?.[0];
     num_paginas = parseInt(dados?.num_paginas?.[0]);
     genero = dados?.genero?.[0];
+    autor = dados?.autor?.[0];
     url_capa = dados?.url_capa?.[0];
   } else {
-    ({ nome, editora, num_paginas, genero, url_capa } = req.body);
+    ({nome, editora, num_paginas, genero, autor, url_capa } = req.body);
   }
 
-  if (!nome || !editora || !num_paginas || !genero || !url_capa) {
+  if (!nome || !editora || !num_paginas || !genero ||!autor || !url_capa) {
     return sendResponse(
       req,
       res,
@@ -79,6 +80,7 @@ exports.criarLivro = (req, res) => {
     editora,
     num_paginas,
     genero,
+    autor,
     url_capa,
   });
 
@@ -88,7 +90,7 @@ exports.criarLivro = (req, res) => {
 // Atualizar um livro
 exports.atualizarLivro = (req, res) => {
   const id = parseInt(req.params.id);
-  let nome, editora, num_paginas, genero, url_capa;
+  let nome, editora, num_paginas, genero, autor, url_capa;
 
   if (req.is("application/xml")) {
     const dados = req.body.livro;
@@ -96,9 +98,10 @@ exports.atualizarLivro = (req, res) => {
     editora = dados?.editora?.[0];
     num_paginas = parseInt(dados?.num_paginas?.[0]);
     genero = dados?.genero?.[0];
+    autor = dados?.autor?.[0];
     url_capa = dados?.url_capa?.[0];
   } else {
-    ({ nome, editora, num_paginas, genero, url_capa } = req.body);
+    ({ nome, editora, num_paginas, genero, autor, url_capa } = req.body);
   }
 
   const livroAtualizado = livroModel.atualizarLivro(id, {
@@ -106,6 +109,7 @@ exports.atualizarLivro = (req, res) => {
     editora,
     num_paginas,
     genero,
+    autor,
     url_capa,
   });
 

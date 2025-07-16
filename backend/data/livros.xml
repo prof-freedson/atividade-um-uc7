@@ -3,15 +3,28 @@
     <livro>
         <id>1</id>
         <nome>
-            <nome>Seu esperto</nome>
-            <editora>Real</editora>
-            <num_paginas>23</num_paginas>
+            <nome>O Pequeno Principe</nome>
+            <editora>Princesa</editora>
+            <num_paginas>125</num_paginas>
+            <genero>Aventura</genero>
+            <autor>Antoine de Saint-Exupéry</autor>
+            <url_capa>https://upload.wikimedia.org/wikipedia/pt/4/47/O-pequeno-pr%C3%ADncipe.jpg</url_capa>
+        </nome>
+    </livro>
+    <livro>
+        <id>2</id>
+        <nome>
+            <nome>A culpa é das estrelas</nome>
+            <editora>Estrela feliz</editora>
+            <num_paginas>78</num_paginas>
             <genero>Suspense</genero>
-            <url_capa>seulivro.com</url_capa>
+            <autor>John Green</autor>
+            <url_capa>https://cdn.dooca.store/81243/products/45vzk9n3m9nlw1lfchyzktlslrsjsphhfmb7.jpg?v=1667238487</url_capa>
         </nome>
         <editora>undefined</editora>
         <num_paginas>undefined</num_paginas>
         <genero>undefined</genero>
+        <autor>undefined</autor>
         <url_capa>undefined</url_capa>
     </livro>
 </livros>

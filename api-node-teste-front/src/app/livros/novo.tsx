@@ -20,8 +20,13 @@ export default function NovoLivro() {
       [name]: name === "num_paginas" ? Number(value) : value,
     }));
   };
+<<<<<<< HEAD:api-node-teste-front/src/app/livros/[id]/novo.tsx
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+=======
+//movido
+  const handleSubmit = async (e: any) => {
+>>>>>>> upstream/main:api-node-teste-front/src/app/livros/novo.tsx
     e.preventDefault();
 
     try {
