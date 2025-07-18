@@ -14,7 +14,7 @@ const app = express();
 app.use(cors()); // <-- Permite requisições de outras origens
 
 // Define a porta em que o servidor vai rodar
-const PORT = 3000;
+const PORT = 3001;
 
 // Adiciona um middleware para permitir que a aplicação interprete JSON no corpo das requisições
 app.use(express.json());

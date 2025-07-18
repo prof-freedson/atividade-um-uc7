@@ -1,11 +1,11 @@
 const fs = require("fs");
 const path = require("path");
-const js2xmlparser = require("js2xmlparser");
+// const js2xmlparser = require("js2xmlparser");
 
 // Caminhos dos arquivos
 const dataDir = path.join(__dirname, "../data");
 const jsonPath = path.join(dataDir, "livros.json");
-const xmlPath = path.join(dataDir, "livros.xml");
+// const xmlPath = path.join(dataDir, "livros.xml");
 
 // Garante que a pasta data existe
 if (!fs.existsSync(dataDir)) {
@@ -25,8 +25,8 @@ if (fs.existsSync(jsonPath)) {
 function salvarLivrosEmArquivo() {
   try {
     fs.writeFileSync(jsonPath, JSON.stringify(livros, null, 2), "utf-8");
-    const xml = js2xmlparser.parse("livros", { livro: livros });
-    fs.writeFileSync(xmlPath, xml, "utf-8");
+    // const xml = js2xmlparser.parse("livros", { livro: livros });
+    // fs.writeFileSync(xmlPath, xml, "utf-8");
   } catch (err) {
     console.error("Erro ao salvar arquivos de livros:", err);
   }

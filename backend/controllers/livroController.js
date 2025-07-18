@@ -6,18 +6,21 @@ function aceitaXml(req) {
 }
 
 function sendResponse(req, res, root, data, status = 200) {
-  if (aceitaXml(req)) {
-    return res
-      .type("application/xml")
-      .status(status)
-      .send(js2xmlparser.parse(root, data));
-  }
+  // 
+  
   return res.status(status).json(data);
 }
 
 // Listar todos os livros
 exports.listarLivros = (req, res) => {
-  const livros = livroModel.listarLivros();
+  let livros = livroModel.listarLivros();
+  // Se algum livro tem campos agrupados em 'nome', espalhe esses campos no objeto principal
+  livros = livros.map(l => {
+    if (typeof l.nome === 'object') {
+      return { id: l.id, ...l.nome };
+    }
+    return l;
+  });
   if (livros.length === 0) {
     return sendResponse(req, res, "response", {
       mensagem: "Nenhum livro encontrado",

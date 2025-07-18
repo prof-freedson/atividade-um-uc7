@@ -7,17 +7,20 @@ type Usuario = {
   id: number;
   nome: string;
   email: string;
-  url: string;
+  url_imagem: string;
 };
 
 export default function UsuariosPage() {
   const [usuarios, setUsuarios] = useState<Usuario[]>([]);
 
-  useEffect(() => {
-    axios.get<Usuario[]>('http://localhost:3001/usuarios')
-      .then(response => setUsuarios(response.data))
-      .catch(error => console.error(error));
-  }, []);
+useEffect(() => {
+  axios.get('http://localhost:3001/usuarios')
+    .then(response => {
+      const data = response.data as { usuario: Usuario[] };
+      setUsuarios(data.usuario || []);
+    })
+    .catch(error => console.error(error));
+}, []);
 
   const handleRemover = async (id: number) => {
     await axios.delete(`http://localhost:3001/usuarios/${id}`);
@@ -31,7 +34,7 @@ export default function UsuariosPage() {
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginTop: '1rem' }}>
         {usuarios.map((usuario: any) => (
           <div key={usuario.id} style={{ border: '1px solid #ccc', padding: '1rem', width: '250px' }}>
-            <img src={usuario.url} alt={usuario.nome} style={{ width: '100%', height: '150px', objectFit: 'cover' }} />
+            <img src={usuario.url_imagem} alt={usuario.nome} style={{ width: '100%', height: '150px', objectFit: 'cover' }} />
             <h3>{usuario.nome}</h3>
             <p>{usuario.email}</p>
             <Link href={`/usuarios/${usuario.id}`}><button>Ver</button></Link>
