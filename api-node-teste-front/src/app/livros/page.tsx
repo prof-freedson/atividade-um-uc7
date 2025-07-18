@@ -1,6 +1,10 @@
+'use client';
+
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "../styles/LivroCard.module.css";
+
+import axios from 'axios';
 
 interface Livro {
   id: number;

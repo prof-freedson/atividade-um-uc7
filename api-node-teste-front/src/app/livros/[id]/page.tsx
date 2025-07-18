@@ -1,14 +1,16 @@
-
+'use client';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 
 type Livro = {
-  url: string;
-  titulo: string;
+  id: number;
+  nome: string;
   editora: string;
   num_paginas: number;
   genero: string;
   autor: string;
+  url_capa: string;
 };
 
 
@@ -32,7 +34,7 @@ const LivroDetalhes = ({ params }: LivroDetalhesProps) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getLivro(params.id).then((data) => {
+    getLivro(String(params.id)).then((data) => {
       setLivro(data);
       setLoading(false);
     });
@@ -49,22 +51,15 @@ const LivroDetalhes = ({ params }: LivroDetalhesProps) => {
   return (
     <div>
       <h2>Detalhes do Livro</h2>
-      <Image src={livro.url} alt={livro.titulo} width={400} height={300} style={{ maxWidth: '100%', height: 'auto' }} />
-      <p>
-        <strong>Título:</strong> {livro.titulo}
-      </p>
-      <p>
-        <strong>Editora:</strong> {livro.editora}
-      </p>
-      <p>
-        <strong>Número de Páginas:</strong> {livro.num_paginas}
-      </p>
-      <p>
-        <strong>Gênero:</strong> {livro.genero}
-      </p>
-      <p>
-        <strong>Autor:</strong> {livro.autor}
-      </p>
+      {livro.url_capa && (
+        <Image src={livro.url_capa} alt={livro.nome} width={400} height={300} style={{ maxWidth: '100%', height: 'auto' }} />
+      )}
+      <p><strong>ID:</strong> {livro.id}</p>
+      <p><strong>Título:</strong> {livro.nome}</p>
+      <p><strong>Editora:</strong> {livro.editora}</p>
+      <p><strong>Número de Páginas:</strong> {livro.num_paginas}</p>
+      <p><strong>Gênero:</strong> {livro.genero}</p>
+      <p><strong>Autor:</strong> {livro.autor}</p>
     </div>
   );
 };

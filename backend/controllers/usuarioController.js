@@ -6,18 +6,25 @@ function aceitaXml(req) {
 }
 
 function sendResponse(req, res, root, data, status = 200) {
-  if (aceitaXml(req)) {
-    return res
-      .type("application/xml")
-      .status(status)
-      .send(js2xmlparser.parse(root, data));
-  }
+  // if (aceitaXml(req)) {
+  //   return res
+  //     .type("application/xml")
+  //     .status(status)
+  //     .send(js2xmlparser.parse(root, data));
+  // }
   return res.status(status).json(data);
 }
 
 // Listar todos os usuarios
 exports.listarUsuarios = (req, res) => {
-  const usuarios = usuarioModel.listarUsuarios();
+  let usuarios = usuarioModel.listarUsuarios();
+  // Se algum usuário tem campos agrupados em 'nome', espalhe esses campos no objeto principal
+  usuarios = usuarios.map(u => {
+    if (typeof u.nome === 'object') {
+      return { id: u.id, ...u.nome };
+    }
+    return u;
+  });
   if (usuarios.length === 0) {
     return sendResponse(req, res, "response", {
       mensagem: "Nenhum usuário encontrado",

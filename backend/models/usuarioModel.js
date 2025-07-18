@@ -1,11 +1,11 @@
 const fs = require("fs");
 const path = require("path");
-const js2xmlparser = require("js2xmlparser");
+// const js2xmlparser = require("js2xmlparser");
 
 
 const dataDir = path.join(__dirname, "../data");
 const jsonPath = path.join(dataDir, "usuarios.json");
-const xmlPath = path.join(dataDir, "usuarios.xml");
+// const xmlPath = path.join(dataDir, "usuarios.xml");
 
 
 if (!fs.existsSync(dataDir)) {
@@ -25,8 +25,8 @@ if (fs.existsSync(jsonPath)) {
 function salvarUsuariosEmArquivo() {
   try {
     fs.writeFileSync(jsonPath, JSON.stringify(usuarios, null, 2), "utf-8");
-    const xml = js2xmlparser.parse("usuarios", { usuario: usuarios });
-    fs.writeFileSync(xmlPath, xml, "utf-8");
+    // const xml = js2xmlparser.parse("usuarios", { usuario: usuarios });
+    // fs.writeFileSync(xmlPath, xml, "utf-8");
   } catch (err) {
     console.error("Erro ao salvar arquivos de usuários:", err);
   }
